@@ -28,7 +28,7 @@ namespace Fall_Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ContextoBD>(opt => opt.UseInMemoryDatabase("ListaDatos")); // nuevo
+            services.AddDbContext<ContextoBD>(opt => opt.UseSqlite(Configuration.GetConnectionString("SQLite"))); // nuevo
             services.AddControllers();
         }
 

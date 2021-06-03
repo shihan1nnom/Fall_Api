@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Fall_Api.Models;
 
 namespace Fall_Api.Models
 {
@@ -12,5 +13,10 @@ namespace Fall_Api.Models
         { }
 
         public DbSet<Dato> Datos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelbuilder)
+        {
+            base.OnModelCreating(modelbuilder);
+        }
     }
 }

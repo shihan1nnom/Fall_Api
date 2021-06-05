@@ -6,29 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <title>Prueba Falabella!</title>
 </head>
 <body>
-    <h1>Hola Mundo!</h1>
-    <p id="counter"></p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">OC</th>
-                <th scope="col">F12</th>
-                <th scope="col">SKU</th>
-                <th scope="col">CC</th>
-            </tr>
-        </thead>
-        <tbody id="todos"></tbody>
-    </table>
+    <div style="padding: 40px">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="buscar">
+            <button class="btn btn-outline-primary" type="button">Buscar</button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">OC</th>
+                    <th scope="col">F12</th>
+                    <th scope="col">SKU</th>
+                    <th scope="col">CC</th>
+                </tr>
+            </thead>
+            <tbody id="resultados"></tbody>
+        </table>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    
     <script src="js/site.js" asp-append-version="true"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
         getDatos();
     </script>

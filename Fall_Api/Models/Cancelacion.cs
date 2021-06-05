@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Fall_Api.Models
 {
-    public class Dato
+    public class Cancelacion
     {
         [Key]
         public long Id { get; set; }
@@ -17,6 +17,17 @@ namespace Fall_Api.Models
         public string oc { get; set; }
 
         [Required(ErrorMessage = "{0} requerido")]
+        public int precio_despacho { get; set; }
+
+        [Required(ErrorMessage = "{0} requerido")]
+        public int monto_total_linea { get; set; }
+
+        [Required(ErrorMessage = "{0} requerido")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Minimo 2 caracteres maximo 50")]
+        [DataType(DataType.Text)]
+        public string sku_linea { get; set; }
+
+        [Required(ErrorMessage = "{0} requerido")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Minimo 2 caracteres maximo 50")]
         [DataType(DataType.Text)]
         public string f12 { get; set; }
@@ -24,15 +35,28 @@ namespace Fall_Api.Models
         [Required(ErrorMessage = "{0} requerido")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Minimo 2 caracteres maximo 50")]
         [DataType(DataType.Text)]
-        public string sku { get; set; }
+        public string tipo_abastecimiento { get; set; }
+
+        [Required(ErrorMessage = "{0} requerido")]
+        public int dup_oc { get; set; }
+
+        [Required(ErrorMessage = "{0} requerido")]
+        public int dup_f12 { get; set; }
 
         [Required(ErrorMessage = "{0} requerido")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Minimo 2 caracteres maximo 50")]
         [DataType(DataType.Text)]
-        public string cc { get; set; }
+        public string estado_linea { get; set; }
 
+        [Required(ErrorMessage = "{0} requerido")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Minimo 2 caracteres maximo 50")]
         [DataType(DataType.Text)]
-        public string estado { get; set; }
+        public string estado_orden_oms { get; set; }
+
+        [Required(ErrorMessage = "{0} requerido")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Minimo 2 caracteres maximo 50")]
+        [DataType(DataType.Text)]
+        public string estado_cd { get; set; }
+
     }
 }

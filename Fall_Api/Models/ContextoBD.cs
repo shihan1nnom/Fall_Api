@@ -13,6 +13,7 @@ namespace Fall_Api.Models
         { }
 
         public DbSet<Dato> Datos { get; set; }
+        public DbSet<Cancelacion> Cancelaciones { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {

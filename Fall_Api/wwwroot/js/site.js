@@ -1,57 +1,42 @@
-﻿const uri = "api/Datos";
-let todos = [];
+﻿const uri_datos = "api/Datos";
+const uri_cancelaciones = "api/Cancelaciones";
 
 function getDatos() {
-    fetch(uri)
+    fetch(uri_datos)
         .then(response => response.json())
-        .then(data => _displayItems(data))
+        .then(data_datos => _displayItems(data_datos))
         .catch(error => console.error('No se pudo obtener datos', error));
 }
 
-function _displayCount(itemCount) {
-    const name = (itemCount == 1) ? 'to-do' : 'to-dos';
-
-    document.getElementById('counter').innerText = `${itemCount} ${name}`;
+function getCancelaciones() {
+    fetch(uri_cancelaciones)
+        .then(response => response.json())
+        .then(data_cancelacion => _displayItems(data_cancelacion))
+        .catch(error => console.error('No se pudo obtener datos', error));
 }
 
 function _displayItems(data) {
-    const tbody = document.getElementById('todos');
+    const tbody = document.getElementById('resultados');
     tbody.innerHTML = '';
 
-    _displayCount(data.lenght);
+    data.forEach(r => {
+        let tr1 = document.createElement('tr');
+        tbody.appendChild(tr1);
 
-    const button = document.createElement('button');
-    button.setAttribute('class', 'btn');
+        let td1 = document.createElement('td');
+        td1.textContent = r.oc;
+        tr1.appendChild(td1);
 
-    data.forEach(item => {
-        let isCompleteChecbox = document.createElement('input');
-        isCompleteChecbox.type = 'checkbox';
-        isCompleteChecbox.disabled = true;
-        isCompleteChecbox.checked = item.isComplete;
+        let td2 = document.createElement('td');
+        td2.textContent = r.f12;
+        tr1.appendChild(td2);
 
-        let editButton = button.cloneNode(false);
-        editButton.innerText = 'Edit';
-        editButton.setAttribute('onclick', '');
+        let td3 = document.createElement('td');
+        td3.textContent = r.sku;
+        tr1.appendChild(td3);
 
-        let deleteButton = button.cloneNode(false);
-        deleteButton.innerText = 'Delete';
-        deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
-
-        let tr = tbody.insertRow();
-
-        let td1 = tr.insertRow(0);
-        td1.appendChild(isCompleteCheckbox);
-
-        let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(item.name);
-        td2.appendChild(textNode);
-
-        let td3 = tr.insertCell(2);
-        td3.appendChild(editButton);
-
-        let td4 = tr.insertCell(3);
-        td4.appendChild(deleteButton);
+        let td4 = document.createElement('td');
+        td4.textContent = r.cc;
+        tr1.appendChild(td4);
     });
-
-    todos = data;
 }
